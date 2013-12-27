@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Remote</string>
+    <string name="previous">Anterior</string>
+    <string name="next">Siguiente</string>
+    <string name="reset">Reiniciar</string>
+
+</resources>

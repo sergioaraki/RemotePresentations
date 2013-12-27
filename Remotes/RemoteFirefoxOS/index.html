@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/base.css">
+    <link rel="stylesheet" type="text/css" href="css/headers.css">
+    <link rel="stylesheet" type="text/css" href="css/buttons.css">
+    <link rel="stylesheet" type="text/css" href="css/toolbars.css">
+    <title>Remote</title>
+     <!-- Localization -->
+    <link rel="resource" type="application/l10n" href="locales/locales.ini" />
+    <script type="application/javascript" src="js/l10n.js"></script>
+    <base target="_blank">
+</head>
+
+<body>
+
+    <section role="region">
+        <header>
+            <div id="online-status" title="Online"></div>
+            <menu type="toolbar">
+                <button id="install"><span class="icon icon-add">add</span></button>
+            </menu>
+            <h1>
+                Remote
+            </h1>
+        </header>
+    </section>
+
+
+    <div id="main">
+
+        <p data-l10n-id="install-ins" id="installation-instructions">Press the + button in the top right corner to install this app.</p>
+
+        <h1 id="lTimer">00:00:00</h1>
+
+        <button data-l10n-id="start-button" id="bStart">Start</button>
+
+        <button data-l10n-id="stop-button" id="bStop">Stop</button>
+
+        <br><br>
+        
+        <button data-l10n-id="prev-button" id="prev">Previous</button>
+
+        <button data-l10n-id="next-button" id="next">Next</button>
+
+    </div>
+
+    <footer>
+        <div role="toolbar">
+            <ul>
+                <li><button id="reload" class="update" data-l10n-id="update-button">Reload</button></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="js/base.js"></script>
+    <script type="text/javascript" src="js/webapp.js"></script>
+
+</body>
+</html>

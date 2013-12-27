@@ -1,0 +1,34 @@
+{
+  "uuid": "0b5936bd-8549-4c70-883f-ee14f1e00693",
+  "shortName": "Presentation",
+  "longName": "Presentation",
+  "companyName": "Sergio Araki",
+  "versionCode": 1,
+  "versionLabel": "1.0.0",
+  "watchapp": {
+    "watchface": false
+  },
+  "appKeys": {
+    "dir": 0
+  },
+  "resources": {
+    "media": [{
+        "type": "png",
+        "name": "Remote",
+        "file": "img/icon.png",
+        "menuIcon": true
+      },{
+        "type": "png",
+        "name": "NEXT_ICON",
+        "file": "img/next.png"
+      },{
+        "type": "png",
+        "name": "PREV_ICON",
+        "file": "img/prev.png"
+      },{
+        "type": "png",
+        "name": "TIMER_ICON",
+        "file": "img/clock.png"
+      }]
+  }
+}

@@ -1,4 +1,8 @@
-var base_url = "http://192.168.1.103:8080";
+var ipServer = localStorage.getItem("ar.com.sergioaraki.remote.ip");
+if (!ipServer) {
+  ipServer = '192.168.1.100';
+}
+var base_url = "http://"+ipServer+":8080";
 
 Pebble.addEventListener("ready",
     function(e) {
@@ -44,3 +48,15 @@ function sendNext() {
   }
   req.send(null);
 }
+
+Pebble.addEventListener("showConfiguration", function() {
+  Pebble.openURL('http://www.arakisergio.com.ar/RemoteConfig/config.html');
+});
+
+Pebble.addEventListener("webviewclosed", function(e) {
+  console.log("configuration closed");
+  // webview closed
+  var options = JSON.parse(decodeURIComponent(e.response));
+  ipServer = options.ip;
+  localStorage.setItem("ar.com.sergioaraki.remote.ip", options.ip);
+});

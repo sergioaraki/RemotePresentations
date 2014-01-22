@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pebble Remote Controller configuration">
+    <meta name="author" content="Sergio Araki">
+    
+    <title>Pebble Remote Controller configuration</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/signin.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Pebble Remote Controller configuration</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <form class="form-signin" role="form">
+        <h2 class="form-signin-heading">Server IP Address</h2>
+        <input id="ip" type="text" class="form-control" placeholder="IP address" autofocus>
+        <button id="submit" class="btn btn-lg btn-primary btn-block" type="submit">Save</button>
+        <button id="cancel" class="btn btn-lg btn-danger btn-block" type="submit">Cancel</button>
+      </form>
+      <div id="empty" class="modal fade">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Error</h4>
+            </div>
+            <div class="modal-body">
+              <p>Complete the server IP address</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+      <div id="error" class="modal fade">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Error</h4>
+            </div>
+            <div class="modal-body">
+              <p>Check the IP address format</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+    $('form').submit(false);
+    function saveOptions() {
+      var options = {
+        'ip': $("#ip").val()
+      }
+      return options;
+    }
+    function ValidateIPaddress(inputText) {
+      var ipformat = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+      if(inputText.match(ipformat)) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    };
+    $().ready(function() {
+        $("button#cancel").click(function() {
+          document.location = "pebblejs://close";
+        });
+
+        $("button#submit").click(function(){
+          var ip = $('#ip').val();
+          if (ip.length==0){
+            $('#empty').modal();
+          }
+          else {
+             if (ValidateIPaddress(ip)){
+                var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(saveOptions()));
+                document.location = location;
+             }
+             else {
+                $('#error').modal();
+             }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

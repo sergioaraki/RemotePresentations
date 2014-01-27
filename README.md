@@ -21,7 +21,7 @@ node server.js
 
 Access in the computer to: localhost:8080/presentations/presentation1
 
-For PebbleRemote, you can install the client from this url: arakisergio.com.ar/Presentation.pbw
+For PebbleRemote, you can install the client from this url: http://www.arakisergio.com.ar/Presentation.pbw
 
 Your phone and computer need to be in the same network, or your phone at least needs to reach your computer ip address.
 

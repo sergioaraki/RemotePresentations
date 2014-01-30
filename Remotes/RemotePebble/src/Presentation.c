@@ -115,9 +115,9 @@ static void window_load(Window *window) {
   Layer *window_layer = window_get_root_layer(window);
   GRect bounds = layer_get_bounds(window_layer);
 
-  text_layer = text_layer_create((GRect) { .origin = { 0, 72 }, .size = { bounds.size.w - ACTION_BAR_WIDTH, 20 } });
+  text_layer = text_layer_create((GRect) { .origin = { 0, bounds.size.h / 2 - 14 }, .size = { bounds.size.w - ACTION_BAR_WIDTH, 28 } });
   text_layer_set_text(text_layer, "00:00:00");
-  text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18_BOLD));
+  text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_DROID_SERIF_28_BOLD));
   text_layer_set_text_alignment(text_layer, GTextAlignmentCenter);
   layer_add_child(window_layer, text_layer_get_layer(text_layer));
 

@@ -50,7 +50,8 @@ Client side - Pebble
 ---
 You need to run RemotePebble on your mobile.
 
-You can install RemotePebble client from this url: [Presentation.pbw](http://www.arakisergio.com.ar/Presentation.pbw) 
+You can install RemotePebble client from this link: [Presentation.pbw](http://www.arakisergio.com.ar/Presentation.pbw)
+
 or the Pebble appstore: ![alt text](http://dev.pblweb.com/badge/52ebbc927d49761086000033/white/small.png "Pebble appstore")
 
 In your mobile, run Presentation configuration screen, from the Official Pebble App. Then, set the IP address of the computer running the node server.

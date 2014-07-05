@@ -6,9 +6,9 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "connect": "*",
-    "socket.io": "*",
-    "socket.io-client": "*"
+    "connect": "2.12.0",
+    "socket.io": "0.9.16",
+    "socket.io-client": "0.9.16"
   },
   "engines": {
     "node": "0.8.x"

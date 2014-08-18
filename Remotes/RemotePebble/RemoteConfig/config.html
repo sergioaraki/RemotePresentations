@@ -30,6 +30,8 @@
       <form class="form-signin" role="form">
         <h2 class="form-signin-heading">Server IP Address</h2>
         <input id="ip" type="text" class="form-control" placeholder="IP address" autofocus>
+        <h2 class="form-signin-heading">Server port number</h2>
+        <input id="port" type="text" class="form-control" placeholder="port number" autofocus>
         <button id="submit" class="btn btn-lg btn-primary btn-block" type="submit">Save</button>
         <button id="cancel" class="btn btn-lg btn-danger btn-block" type="submit">Cancel</button>
       </form>
@@ -40,7 +42,7 @@
               <h4 class="modal-title">Error</h4>
             </div>
             <div class="modal-body">
-              <p>Complete the server IP address</p>
+              <p>Complete the server IP address and port number</p>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -75,7 +77,8 @@
     $('form').submit(false);
     function saveOptions() {
       var options = {
-        'ip': $("#ip").val()
+        'ip': $("#ip").val(),
+        'port': $("#port").val()
       }
       return options;
     }
@@ -95,7 +98,10 @@
 
         $("button#submit").click(function(){
           var ip = $('#ip').val();
+          var port = $('#port').val();
           if (ip.length==0){
+            $('#empty').modal();
+          } else if (port.length==0){
             $('#empty').modal();
           }
           else {

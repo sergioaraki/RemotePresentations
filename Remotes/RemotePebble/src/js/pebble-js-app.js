@@ -2,7 +2,11 @@ var ipServer = localStorage.getItem("ar.com.sergioaraki.remote.ip");
 if (!ipServer) {
   ipServer = '192.168.1.100';
 }
-var base_url = "http://"+ipServer+":8080";
+var portServer = localStorage.getItem("ar.com.sergioaraki.remote.port");
+if (!portServer) {
+  portServer = '8080';
+}
+var base_url = "http://"+ipServer+":"+portServer;
 
 Pebble.addEventListener("ready",
     function(e) {
@@ -58,5 +62,7 @@ Pebble.addEventListener("webviewclosed", function(e) {
   // webview closed
   var options = JSON.parse(decodeURIComponent(e.response));
   ipServer = options.ip;
-  localStorage.setItem("ar.com.sergioaraki.remote.ip", options.ip);
+  portServer = options.port;
+  localStorage.setItem("ar.com.sergioaraki.remote.ip", ipServer);
+  localStorage.setItem("ar.com.sergioaraki.remote.port", portServer);
 });
